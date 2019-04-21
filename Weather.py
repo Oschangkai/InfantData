@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import env
 import csv
-# import copy
 import requests
 from bs4 import BeautifulSoup
 
@@ -14,6 +13,9 @@ from bs4 import BeautifulSoup
 
 def api_url(dataid):
   return "https://opendata.cwb.gov.tw/api/v1/rest/datastore/" + dataid + "?Authorization="+ env.CWBKEY + "&format=json"
+
+def station():
+  url = "https://e-service.cwb.gov.tw/wdps/obs/state.htm"
 
 # Read Local XML
 def get_rain_data(year):
