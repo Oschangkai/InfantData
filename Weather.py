@@ -36,6 +36,7 @@ def data_cleaning(year):
     data_count_by_month.append(len(t.find_all("location")))
 
   month = [t.getText() for t in soup.find_all("dataTime")]
+  station = [s.getText() for s in soup.find_all("stationId")]
   expanded_month = []
   for idx, val in enumerate(month):
     expanded_month += [val]*data_count_by_month[idx]
@@ -53,7 +54,7 @@ def data_cleaning(year):
     elif(el.elementName.get_text() == "平均相對濕度"):
       humidity.append(el.elementValue.value.get_text())
 
-  return [{'time': mon, 'average_temperature': avgt, 'humidity': hum} for mon, avgt, hum in zip(expanded_month, avg_temp, humidity)]
+  return [{'time': mon, 'station': sta, 'average_temperature': avgt, 'humidity': hum} for mon, sta, avgt, hum in zip(expanded_month, station, avg_temp, humidity)]
 
 
 
