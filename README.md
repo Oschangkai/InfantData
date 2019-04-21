@@ -1,4 +1,4 @@
-## Install
+## Setup
 
 1. Install required Package
 
